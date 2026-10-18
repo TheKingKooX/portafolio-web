@@ -1,0 +1,13 @@
+{
+  "nombre": "TheBrosV · Portada del estudio",
+  "descripcion": "La portada del estudio: un escenario fijo con cortinas que cambian de forma y una rejilla con las cinco webs de ejemplo.",
+  "tipo": "Portada del estudio",
+  "tecnologias": [
+    "React",
+    "GSAP",
+    "JavaScript"
+  ],
+  "entrada": "",
+  "captura": "captura.webp",
+  "orden": 1
+}

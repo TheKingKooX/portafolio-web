@@ -1,0 +1,14 @@
+{
+  "nombre": "Humo · Hamburguesería",
+  "descripcion": "Una historia 3D con el scroll: cada plato gira entre brasas mientras se cuenta su capítulo. Carta con vídeo y visor 3D.",
+  "tipo": "Demo (marca ficticia)",
+  "tecnologias": [
+    "React",
+    "Three.js",
+    "WebGL",
+    "GSAP"
+  ],
+  "entrada": "restaurante/",
+  "captura": "captura.webp",
+  "orden": 25
+}
