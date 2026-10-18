@@ -1,0 +1,14 @@
+{
+  "nombre": "Valea · Barbería",
+  "descripcion": "Una luz que sigue al cursor descubre la barbería. Antes y después, estilos, equipo y reserva.",
+  "tipo": "Demo (marca ficticia)",
+  "tecnologias": [
+    "React",
+    "Three.js",
+    "WebGL",
+    "GSAP"
+  ],
+  "entrada": "barberia/",
+  "captura": "captura.webp",
+  "orden": 10
+}

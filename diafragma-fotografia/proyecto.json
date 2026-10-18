@@ -1,0 +1,14 @@
+{
+  "nombre": "Diafragma · Estudio de fotografía",
+  "descripcion": "La cámara avanza por una galería 3D en profundidad; el fondo toma los colores de cada foto.",
+  "tipo": "Demo (marca ficticia)",
+  "tecnologias": [
+    "React",
+    "Three.js",
+    "WebGL",
+    "GSAP"
+  ],
+  "entrada": "fotografia/",
+  "captura": "captura.webp",
+  "orden": 30
+}

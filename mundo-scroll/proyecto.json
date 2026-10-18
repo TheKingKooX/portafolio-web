@@ -1,0 +1,13 @@
+{
+  "nombre": "Mundo con scroll",
+  "descripcion": "Al bajar, la cámara vuela por maquetas de arcilla, entra en cada una y salta a la siguiente sin cortes.",
+  "tipo": "Demo (marca ficticia)",
+  "tecnologias": [
+    "JavaScript",
+    "Vídeo con scroll",
+    "IA generativa"
+  ],
+  "entrada": "",
+  "captura": "captura.webp",
+  "orden": 5
+}

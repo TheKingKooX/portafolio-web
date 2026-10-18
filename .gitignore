@@ -1,0 +1,4 @@
+# Vídeo y vistas locales
+*.log
+.DS_Store
+Thumbs.db

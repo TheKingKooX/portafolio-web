@@ -1,0 +1,13 @@
+{
+  "nombre": "Pulso · Agencia de marketing",
+  "descripcion": "Fondos WebGL que reaccionan al ratón y a cada capítulo, con cifras que laten.",
+  "tipo": "Demo (marca ficticia)",
+  "tecnologias": [
+    "React",
+    "WebGL",
+    "GSAP"
+  ],
+  "entrada": "marketing/",
+  "captura": "captura.webp",
+  "orden": 20
+}

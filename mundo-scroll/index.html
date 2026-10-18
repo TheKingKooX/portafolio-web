@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>TheBrosV · El mundo de las webs que se sienten</title>
+  <meta name="description" content="Baja y vuela por el mundo de TheBrosV: cinco webs de ejemplo, cinco formas de inmersión." />
+  <style>
+    /* Mismo fondo crema que las escenas generadas, tinta casi negra y la lima de TheBrosV. */
+    :root, .sw-root {
+      --sw-bg: #F5F3EF;
+      --sw-ink: #0E0E10;
+      --sw-ink-soft: #57534E;
+      --sw-accent: #5B6B00;
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="world"></div>
+
+  <script src="scrub-engine.js"></script>
+  <script>
+    // Acentos de cada obra oscurecidos para que el texto pequeño lea sobre el crema.
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'TheBrosV', href: '#top' },
+      cta: { label: '¿Hacemos la tuya?', href: '#' },
+      hint: 'baja para entrar',
+      diveScroll: 2.0,
+      connScroll: 1.4,
+      follow: 0.85,
+      preloadAll: true,
+      sections: [
+        {
+          id: 'estudio', label: 'El estudio',
+          still: 'assets/stills/escena-1.webp', clip: 'assets/vid/escena-1.mp4',
+          accent: '#5B6B00', scroll: 2.4, linger: 0.3,
+          eyebrow: 'TheBrosV · webs inmersivas a medida',
+          title: 'Webs que se sienten.',
+          body: 'Cinco webs de ejemplo, cinco formas de inmersión. Baja y recórrelas.',
+          tags: ['Hechas a medida', 'Rápidas en el móvil'],
+        },
+        {
+          id: 'valea', label: 'Valea',
+          still: 'assets/stills/escena-2.webp', clip: 'assets/vid/escena-2.mp4',
+          accent: '#8A5A00',
+          eyebrow: 'Barbería · el ratón es el protagonista',
+          title: 'Una luz que te sigue.',
+          body: 'Un haz de luz sigue al cursor y descubre la barbería.',
+          tags: ['Luz que sigue al cursor', 'Antes y después'],
+        },
+        {
+          id: 'pulso', label: 'Pulso',
+          still: 'assets/stills/escena-3.webp', clip: 'assets/vid/escena-3.mp4',
+          accent: '#B0256F',
+          eyebrow: 'Agencia de marketing · fondos que reaccionan',
+          title: 'Tu marca, con pulso.',
+          body: 'Ondas y color que responden al ratón y a cada capítulo.',
+          tags: ['Fondo vivo', 'Cifras que laten'],
+        },
+        {
+          id: 'diafragma', label: 'Diafragma',
+          still: 'assets/stills/escena-4.webp', clip: 'assets/vid/escena-4.mp4',
+          accent: '#8A6400',
+          eyebrow: 'Estudio de fotografía · galería en profundidad',
+          title: 'Cada foto, su momento.',
+          body: 'La cámara avanza entre las fotos y el fondo toma su color.',
+          tags: ['Galería 3D', 'Visor ampliado'],
+        },
+        {
+          id: 'humo', label: 'Humo',
+          still: 'assets/stills/escena-5.webp', clip: 'assets/vid/escena-5.mp4',
+          accent: '#B4441A',
+          eyebrow: 'Hamburguesería · historia 3D con el scroll',
+          title: 'Se cuenta bajando.',
+          body: 'Cada plato gira entre brasas mientras se cuenta su capítulo.',
+          tags: ['Platos en 3D', 'Carta con vídeo'],
+        },
+        {
+          id: 'nacar', label: 'Nácar',
+          still: 'assets/stills/escena-6.webp', clip: 'assets/vid/escena-6.mp4',
+          accent: '#A3446A', scroll: 2.4, linger: 0.35,
+          eyebrow: 'Clínica dental · un mundo de partículas',
+          title: '¿Hacemos la tuya?',
+          body: 'Cuéntame tu negocio y te propongo una web que se recuerde. Respondo en menos de un día.',
+          tags: ['Partículas que dibujan', 'Claro y oscuro'],
+          cta: { primary: { label: 'Cuéntame tu negocio', href: '#' },
+                 secondary: { label: 'Ver el portafolio', href: '../' } },
+        },
+      ],
+      connectors: [
+        'assets/vid/empalme-1.mp4',
+        'assets/vid/empalme-2.mp4',
+        'assets/vid/empalme-3.mp4',
+        'assets/vid/empalme-4.mp4',
+        'assets/vid/empalme-5.mp4',
+      ],
+    });
+  </script>
+</body>
+</html>

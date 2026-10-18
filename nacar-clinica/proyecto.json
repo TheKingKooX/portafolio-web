@@ -1,0 +1,14 @@
+{
+  "nombre": "Nácar · Clínica dental",
+  "descripcion": "Decenas de miles de partículas dibujan un diente y se transforman al cambiar de sección.",
+  "tipo": "Demo (marca ficticia)",
+  "tecnologias": [
+    "React",
+    "Three.js",
+    "WebGL",
+    "GSAP"
+  ],
+  "entrada": "clinica/",
+  "captura": "captura.webp",
+  "orden": 40
+}
