@@ -59,5 +59,18 @@ Todas las rutas son relativas, así que funcionan igual en `usuario.github.io/re
 | `diafragma-fotografia/` | Estudio de fotografía: galería 3D en profundidad |
 | `nacar-clinica/` | Clínica dental: partículas que dibujan figuras |
 | `mundo-scroll/` | Vuelo con el scroll por maquetas de arcilla |
+| `mamia-helados/` | Propuesta de web para una heladería real de Lima (demo, no oficial; no se indexa en buscadores) |
 
 El código fuente de las cuatro primeras está en `thebrosv-lab` (se empaquetan con `node tools/empaquetar.mjs`).
+
+## Nota sobre `mamia-helados/`
+
+Es una **propuesta de demo para un negocio real** (Mamía Helados Artesanales), no su sitio oficial: lleva el aviso en pantalla,
+`noindex, nofollow` para que los buscadores no la indexen y el WhatsApp de quien la presenta (no el del negocio). El mensaje
+que rellena al pedir empieza por «¡Hola! Probé la demo web de Mamía (propuesta)…» para que no se confunda con un pedido real.
+
+Se generó desde `Buzzinez/mamia-web` así (el código fuente de allí no se toca):
+1. `npx vite build --base=./ --outDir <carpeta>` para que las rutas sean relativas.
+2. En el JS compilado, las rutas `"/img/…"` pasan a `"./img/…"` y el saludo `¡Hola Mamía! Soy ` pasa a `¡Hola! Probé la demo web de Mamía (propuesta). Soy `.
+3. Se añade `<meta name="robots" content="noindex, nofollow">` a su `index.html`.
+Si la propuesta se acepta, se sustituye el número por el del negocio y se retira el parche del saludo.
