@@ -1,0 +1,9 @@
+{
+  "nombre": "Chaska Helados · Demo de heladería",
+  "descripcion": "Demo inmersiva de una heladería artesanal ficticia: sabores con stock simulado, pedido express por WhatsApp, cotizador de eventos y un recorrido 3D por los sabores.",
+  "tipo": "Demo (marca ficticia)",
+  "tecnologias": ["React", "Three.js", "GSAP", "Framer Motion"],
+  "entrada": "",
+  "captura": "captura.webp",
+  "orden": 15
+}

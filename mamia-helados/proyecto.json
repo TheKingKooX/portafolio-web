@@ -1,9 +1,0 @@
-{
-  "nombre": "Mamía Helados · Propuesta de web",
-  "descripcion": "Propuesta navegable para una heladería artesanal de Lima: sabores con stock simulado, pedido express por WhatsApp, cotizador de eventos y un recorrido 3D por los sabores.",
-  "tipo": "Propuesta de demo (marca real, no oficial)",
-  "tecnologias": ["React", "Three.js", "GSAP", "Framer Motion"],
-  "entrada": "",
-  "captura": "captura.webp",
-  "orden": 15
-}
