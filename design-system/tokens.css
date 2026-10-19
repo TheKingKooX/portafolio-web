@@ -1,0 +1,55 @@
+/* Design Tokens - Auto-generated */
+/* Do not edit directly - modify tokens.json instead */
+
+/* === PRIMITIVES === */
+:root {
+  --primitive-color-ink-500: #8398a0;
+  --primitive-color-ink-700: #14262b;
+  --primitive-color-ink-900: #061216;
+  --primitive-color-ink-950: #030a0c;
+  --primitive-color-snow-50: #eff6f7;
+  --primitive-color-cyan-400: #22f7ff;
+  --primitive-color-green-400: #00f259;
+  --primitive-color-orange-500: #ff8000;
+  --primitive-color-pink-500: #ff3899;
+  --primitive-space-1: 0.25rem;
+  --primitive-space-2: 0.5rem;
+  --primitive-space-3: 0.75rem;
+  --primitive-space-4: 1rem;
+  --primitive-space-6: 1.5rem;
+  --primitive-space-8: 2rem;
+  --primitive-space-12: 3rem;
+  --primitive-space-16: 4rem;
+  --primitive-border-thin: 1px;
+  --primitive-border-base: 2px;
+  --primitive-shadow-rest: 5px;
+  --primitive-shadow-lift: 8px;
+  --primitive-shadow-press: 2px;
+  --primitive-duration-fast: 150ms;
+  --primitive-duration-base: 200ms;
+  --primitive-duration-slow: 500ms;
+}
+
+/* === SEMANTIC === */
+:root {
+  --color-bg: #030a0c;
+  --color-surface: #061216;
+  --color-line: #14262b;
+  --color-text: #eff6f7;
+  --color-text-muted: #8398a0;
+  --color-primary: #22f7ff;
+  --color-success: #00f259;
+  --color-warm: #ff8000;
+  --color-accent: #ff3899;
+  --color-on-primary: #030a0c;
+}
+
+/* === COMPONENTS === */
+:root {
+  --button-bg: #22f7ff;
+  --button-fg: #030a0c;
+  --button-shadow: #ff3899;
+  --button-hover-bg: #00f259;
+  --card-border: #14262b;
+  --card-bg: #061216;
+}

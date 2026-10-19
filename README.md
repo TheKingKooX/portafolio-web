@@ -9,6 +9,9 @@ y se genera con `generar-indice.mjs`.
 portafolio-web/
 ├─ index.html              ← portada del portafolio (generada)
 ├─ generar-indice.mjs      ← la genera a partir de los proyecto.json
+├─ plantilla/              ← partes fijas de la portada: estilos.css, fuentes.css y los dos scripts del logo
+├─ design-system/          ← tokens.json (fuente) → tokens.css, y BRAND.md (voz y mensaje)
+├─ anadir-retorno.mjs      ← pone el botón «← Portafolio» en las demos (lo llama generar-indice.mjs)
 ├─ .nojekyll               ← para GitHub Pages
 └─ <proyecto>/
    ├─ proyecto.json        ← datos que usa la portada

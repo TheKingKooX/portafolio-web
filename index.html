@@ -12,13 +12,64 @@
     @font-face { font-family:"Instrument Sans"; font-weight:400 600; font-display:swap; src:url("hero/fonts/instrument-sans.woff2") format("woff2"); }
     @font-face { font-family:"JetBrains Mono"; font-weight:400 500; font-display:swap; src:url("hero/fonts/jetbrains-mono.woff2") format("woff2"); }
     @font-face { font-family:"Caveat"; font-weight:700; font-display:block; src:url("hero/fonts/caveat-700.woff2") format("woff2"); }
-    :root { --papel:#030a0c; --sup:#061216; --linea-c:#14262b; --tinta:#eff6f7; --suave:#8398a0; --cian:#22f7ff; --verde:#00f259; --naranja:#ff8000; --acento:#ff3899; --marca:linear-gradient(90deg,#22f7ff,#00f259,#ff8000,#ff3899); --linea:2px solid var(--linea-c);
+:root {
+  --primitive-color-ink-500: #8398a0;
+  --primitive-color-ink-700: #14262b;
+  --primitive-color-ink-900: #061216;
+  --primitive-color-ink-950: #030a0c;
+  --primitive-color-snow-50: #eff6f7;
+  --primitive-color-cyan-400: #22f7ff;
+  --primitive-color-green-400: #00f259;
+  --primitive-color-orange-500: #ff8000;
+  --primitive-color-pink-500: #ff3899;
+  --primitive-space-1: 0.25rem;
+  --primitive-space-2: 0.5rem;
+  --primitive-space-3: 0.75rem;
+  --primitive-space-4: 1rem;
+  --primitive-space-6: 1.5rem;
+  --primitive-space-8: 2rem;
+  --primitive-space-12: 3rem;
+  --primitive-space-16: 4rem;
+  --primitive-border-thin: 1px;
+  --primitive-border-base: 2px;
+  --primitive-shadow-rest: 5px;
+  --primitive-shadow-lift: 8px;
+  --primitive-shadow-press: 2px;
+  --primitive-duration-fast: 150ms;
+  --primitive-duration-base: 200ms;
+  --primitive-duration-slow: 500ms;
+}
+
+
+:root {
+  --color-bg: #030a0c;
+  --color-surface: #061216;
+  --color-line: #14262b;
+  --color-text: #eff6f7;
+  --color-text-muted: #8398a0;
+  --color-primary: #22f7ff;
+  --color-success: #00f259;
+  --color-warm: #ff8000;
+  --color-accent: #ff3899;
+  --color-on-primary: #030a0c;
+}
+
+
+:root {
+  --button-bg: #22f7ff;
+  --button-fg: #030a0c;
+  --button-shadow: #ff3899;
+  --button-hover-bg: #00f259;
+  --card-border: #14262b;
+  --card-bg: #061216;
+}
+    :root { --papel:var(--color-bg); --sup:var(--color-surface); --linea-c:var(--color-line); --tinta:var(--color-text); --suave:var(--color-text-muted); --cian:var(--color-primary); --verde:var(--color-success); --naranja:var(--color-warm); --acento:var(--color-accent); --marca:linear-gradient(90deg,var(--color-primary),var(--color-success),var(--color-warm),var(--color-accent)); --linea:var(--primitive-border-base) solid var(--linea-c);
       --titulo:"Syne","Arial Black",system-ui,sans-serif; --texto:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace; color-scheme:dark; }
     * { box-sizing:border-box; margin:0; }
     html { scroll-behavior:smooth; }
     body { font:400 17px/1.55 var(--texto); background:var(--papel); color:var(--tinta); }
     a { color:inherit; } img { display:block; max-width:100%; height:auto; } ul { list-style:none; padding:0; }
-    .salto { position:absolute; left:-999px; top:8px; background:var(--cian); color:#030a0c; padding:10px 16px; z-index:100; }
+    .salto { position:absolute; left:-999px; top:8px; background:var(--cian); color:var(--color-on-primary); padding:10px 16px; z-index:100; }
     .salto:focus { left:8px; }
     :focus-visible { outline:3px solid var(--cian); outline-offset:3px; }
     .envoltura { width:min(1240px, 100% - 40px); margin-inline:auto; }
@@ -30,19 +81,19 @@
     header nav ul { display:flex; gap:28px; font-weight:500; }
     header nav a { text-decoration:none; padding:10px 0; display:inline-block; border-bottom:2px solid transparent; transition:border-color .15s; }
     header nav a:hover { border-color:var(--cian); }
-    .boton, .cta { display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 22px; background:var(--cian); color:#030a0c; font:600 16px var(--texto); text-decoration:none; border:2px solid var(--cian); cursor:pointer; box-shadow:5px 5px 0 var(--acento); transition:box-shadow .2s, background .15s, color .15s; will-change:transform; }
+    .boton, .cta { display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 22px; background:var(--cian); color:var(--color-on-primary); font:600 16px var(--texto); text-decoration:none; border:2px solid var(--cian); cursor:pointer; box-shadow:5px 5px 0 var(--acento); transition:box-shadow .2s, background .15s, color .15s; will-change:transform; }
     .boton:hover, .cta:hover { box-shadow:8px 8px 0 var(--acento); }
     .boton:active, .cta:active { box-shadow:2px 2px 0 var(--acento); }
     header .cta { min-height:44px; padding:0 16px; font-size:15px; box-shadow:none; }
     header .cta:hover { box-shadow:none; background:var(--verde); border-color:var(--verde); }
 
-    .escenario { position:relative; isolation:isolate; height:clamp(300px,64svh,720px); background:#030a0c; border-bottom:var(--linea); overflow:hidden; }
+    .escenario { position:relative; isolation:isolate; height:clamp(300px,64svh,720px); background:var(--color-bg); border-bottom:var(--linea); overflow:hidden; }
     .escenario .poster, .escenario canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
     .escenario .poster { object-fit:cover; transition:opacity .8s; }
     .escenario canvas { opacity:0; transition:opacity .8s; }
-    .escenario[data-hero="live"] canvas { opacity:1; } .escenario[data-hero="live"] .poster { opacity:0; }
+    .escenario[data-hero="live"] canvas { opacity:var(--vis,1); } .escenario[data-hero="live"] .poster { opacity:0; }
     .escenario[data-hero="poster"] canvas { display:none; }
-    .saltar { position:absolute; right:16px; bottom:16px; z-index:2; min-height:40px; padding:0 14px; background:rgba(3,10,12,.7); color:var(--tinta); border:1px solid var(--suave); font:500 13px var(--mono); cursor:pointer; display:none; }
+    .saltar { position:absolute; right:16px; bottom:16px; z-index:2; min-height:40px; padding:0 14px; background:color-mix(in srgb,var(--color-bg) 70%,transparent); color:var(--tinta); border:1px solid var(--suave); font:500 13px var(--mono); cursor:pointer; display:none; }
     .escenario[data-intro="playing"] .saltar { display:block; }
     .hero { border-bottom:var(--linea); padding:clamp(36px,6vw,80px) 0 clamp(36px,5vw,64px); }
     .hero h1 { font:800 clamp(48px,11vw,170px)/.9 var(--titulo); letter-spacing:-.045em; text-transform:uppercase; }
@@ -72,6 +123,14 @@
     .info .boton { margin-top:auto; }
     .obra:first-child .info h2 { font-size:clamp(28px,3.6vw,52px); } .obra:first-child .info .boton { margin-top:10px; }
 
+    .oferta { border-bottom:var(--linea); padding:clamp(48px,8vw,112px) 0; }
+    .oferta h2 { font:700 clamp(32px,6vw,84px)/.95 var(--titulo); letter-spacing:-.04em; text-transform:uppercase; max-width:14ch; }
+    .pilares { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:var(--primitive-space-6); margin-top:var(--primitive-space-8); }
+    .pilares li { border:var(--linea); padding:var(--primitive-space-6); background:var(--sup); }
+    .pilares h3 { font:700 1.25rem/1.15 var(--titulo); margin-bottom:var(--primitive-space-2); overflow-wrap:anywhere; }
+    .pilares p { color:var(--suave); }
+    .indicio { margin-top:var(--primitive-space-8); font:500 15px var(--mono); color:var(--suave); }
+    .indicio a { color:var(--cian); text-underline-offset:4px; }
     .contacto { background:var(--sup); border-bottom:var(--linea); position:relative; padding:clamp(56px,9vw,120px) 0; }
     .contacto::before { content:""; position:absolute; inset:0 0 auto 0; height:6px; background:var(--marca); }
     .contacto h2 { font:700 clamp(44px,9vw,140px)/.9 var(--titulo); letter-spacing:-.04em; text-transform:uppercase; max-width:12ch; }
@@ -113,7 +172,7 @@
   <header>
     <div class="envoltura">
       <a class="brand" href="#" aria-label="TheBrosV">The<span>BrosV</span></a>
-      <nav aria-label="Principal"><ul><li><a href="#proyectos">Proyectos</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
+      <nav aria-label="Principal"><ul><li><a href="#proyectos">Proyectos</a></li><li><a href="#oferta">Qué ofrezco</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
       <a class="cta" href="https://wa.me/51924536653?text=%C2%A1Hola!%20Vi%20tu%20portafolio%20y%20me%20interesa%20una%20web%20para%20mi%20negocio." target="_blank" rel="noopener">Hablemos</a>
     </div>
   </header>
@@ -215,6 +274,18 @@
       </div>
     </article>
     </div>
+    <section class="oferta" id="oferta" aria-labelledby="t-oferta">
+      <div class="envoltura">
+        <h2 id="t-oferta" class="revela">Más que una web bonita.</h2>
+        <ul class="pilares">
+          <li class="revela"><h3>Asesoría personalizada</h3><p>Te acompaño para que la web responda a lo que tu negocio necesita, no a una plantilla.</p></li>
+          <li class="revela"><h3>Herramientas que rinden</h3><p>Sumo las que ayuden a crecer en tu área: pedidos, reservas, mensajes, lo que tu cliente use.</p></li>
+          <li class="revela"><h3>Tu web como inventario</h3><p>Muestra lo que tienes disponible y deja que tus clientes lo vean al momento.</p></li>
+          <li class="revela"><h3>Movimiento y 3D</h3><p>Una web que se siente distinta y que tus clientes recuerdan, como las demos de arriba.</p></li>
+        </ul>
+        <p class="indicio revela">¿Quieres editar tu web tú mismo? <a href="https://wa.me/51924536653?text=%C2%A1Hola!%20Vi%20tu%20portafolio%20y%20me%20interesa%20una%20web%20para%20mi%20negocio." target="_blank" rel="noopener">Pregúntame</a></p>
+      </div>
+    </section>
     <section class="contacto" id="contacto" aria-labelledby="t-contacto">
       <div class="envoltura">
         <h2 id="t-contacto" class="revela">¿Hacemos la tuya?</h2>
@@ -249,6 +320,22 @@
   <script>
     const io = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target) } }, { threshold: .2 })
     document.querySelectorAll('.revela').forEach((e) => io.observe(e))
+
+    // El logo 3D reacciona al scroll: progreso 0–1 sobre la altura del escenario, suavizado (lerp), solo transform/opacity.
+    const escenario = document.getElementById('hero-stage'), lienzo = escenario.querySelector('canvas')
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let objetivo = 0, p = 0, activo = false
+      const leer = () => { if (scrollY > 0) lienzo.style.transition = 'none'; objetivo = Math.min(1, Math.max(0, scrollY / Math.max(1, escenario.offsetHeight))); if (!activo) { activo = true; requestAnimationFrame(paso) } }
+      const paso = () => {
+        p += (objetivo - p) * .12
+        lienzo.style.transform = 'translate3d(0,' + (p * 14).toFixed(2) + '%,0) scale(' + (1 + p * .18).toFixed(3) + ')'
+        escenario.style.setProperty('--vis', (1 - p * .65).toFixed(3))
+        if (Math.abs(objetivo - p) > .001) requestAnimationFrame(paso); else activo = false
+      }
+      addEventListener('scroll', leer, { passive: true }); leer()
+    }
+    // Si el navegador pierde el contexto WebGL, se vuelve al póster estático en vez de dejar el escenario vacío.
+    lienzo.addEventListener('webglcontextlost', (e) => { e.preventDefault(); escenario.dataset.hero = 'poster' })
   </script>
 </body>
 </html>
