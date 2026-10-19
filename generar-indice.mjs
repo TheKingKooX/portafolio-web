@@ -22,7 +22,7 @@ const wa = sitio.whatsapp ? `https://wa.me/${esc(sitio.whatsapp)}${sitio.mensaje
 const pad = (n) => String(n).padStart(2, '0')
 
 const fila = (p, i) => `
-    <article class="obra${i % 2 ? ' inversa' : ''}" aria-labelledby="t-${i}">
+    <article class="obra" aria-labelledby="t-${i}">
       <a class="foto" href="${enlace(p)}" tabindex="-1" aria-hidden="true">${imagen(p, i < 2 ? 'fetchpriority="high"' : 'loading="lazy"')}</a>
       <div class="info">
         <p class="num">${pad(i + 1)} / ${pad(proyectos.length)} · ${esc(p.tipo ?? 'Proyecto')}</p>
@@ -60,14 +60,16 @@ const html = `<!doctype html>
 
     header { position:sticky; top:0; z-index:40; background:var(--papel); border-bottom:var(--linea); }
     header .envoltura { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:60px; }
-    header strong { font:700 22px var(--titulo); letter-spacing:-.02em; }
+    .brand { font:800 1.25rem/1 var(--titulo); letter-spacing:-.01em; color:var(--tinta); text-decoration:none; padding:12px 0; }
+    .brand span { background:var(--marca); -webkit-background-clip:text; background-clip:text; color:transparent; }
     header nav ul { display:flex; gap:28px; font-weight:500; }
     header nav a { text-decoration:none; padding:10px 0; display:inline-block; border-bottom:2px solid transparent; transition:border-color .15s; }
     header nav a:hover { border-color:var(--cian); }
-    .boton, .cta { display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 22px; background:var(--cian); color:#030a0c; font:600 16px var(--texto); text-decoration:none; border:2px solid var(--cian); cursor:pointer; box-shadow:5px 5px 0 var(--acento); transition:transform .15s, box-shadow .15s, background .15s, color .15s; }
-    .boton:hover, .cta:hover { transform:translate(3px,3px); box-shadow:2px 2px 0 var(--acento); }
+    .boton, .cta { display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 22px; background:var(--cian); color:#030a0c; font:600 16px var(--texto); text-decoration:none; border:2px solid var(--cian); cursor:pointer; box-shadow:5px 5px 0 var(--acento); transition:box-shadow .2s, background .15s, color .15s; will-change:transform; }
+    .boton:hover, .cta:hover { box-shadow:8px 8px 0 var(--acento); }
+    .boton:active, .cta:active { box-shadow:2px 2px 0 var(--acento); }
     header .cta { min-height:44px; padding:0 16px; font-size:15px; box-shadow:none; }
-    header .cta:hover { transform:none; background:var(--verde); border-color:var(--verde); }
+    header .cta:hover { box-shadow:none; background:var(--verde); border-color:var(--verde); }
 
     .escenario { position:relative; isolation:isolate; height:clamp(300px,64svh,720px); background:#030a0c; border-bottom:var(--linea); overflow:hidden; }
     .escenario .poster, .escenario canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
@@ -84,38 +86,56 @@ const html = `<!doctype html>
     .hero p.sub { font-size:clamp(19px,2vw,26px); line-height:1.3; max-width:34ch; }
     .hero .datos { display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
     .hero .botones { margin-top:32px; display:flex; gap:20px; flex-wrap:wrap; }
-    .cta.claro { background:transparent; color:var(--tinta); border-color:var(--tinta); box-shadow:5px 5px 0 var(--naranja); }
+    .cta.claro { background:transparent; color:var(--tinta); border-color:var(--tinta); box-shadow:5px 5px 0 var(--naranja); } .cta.claro:hover { box-shadow:8px 8px 0 var(--naranja); } .cta.claro:active { box-shadow:2px 2px 0 var(--naranja); }
     .dato { border:var(--linea); padding:6px 14px; font:500 13px var(--mono); text-transform:uppercase; letter-spacing:.05em; }
 
+    #proyectos { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr)); border-bottom:var(--linea); }
+    .obra { display:flex; flex-direction:column; border-right:var(--linea); border-top:var(--linea); min-width:0; }
+    .obra:first-child { grid-column:1 / -1; flex-direction:row; flex-wrap:wrap; }
+    .obra:first-child .foto { flex:1 1 420px; } .obra:first-child .info { flex:1 1 320px; justify-content:center; }
     .obra:nth-child(even) .num { color:var(--verde); }
-    .obra { display:grid; grid-template-columns:7fr 5fr; border-bottom:var(--linea); }
-    .obra.inversa { grid-template-columns:5fr 7fr; }
-    .obra.inversa .foto { order:2; border-left:var(--linea); border-right:0; }
-    .foto { display:block; border-right:var(--linea); overflow:hidden; background:var(--sup); }
-    .foto img { width:100%; height:100%; aspect-ratio:16/10; object-fit:cover; transition:transform .5s cubic-bezier(.22,.61,.36,1); }
-    .obra:hover .foto img { transform:scale(1.04); }
-    .info { padding:clamp(24px,4vw,56px); display:flex; flex-direction:column; justify-content:center; gap:14px; align-items:flex-start; }
+    .foto { display:block; overflow:hidden; background:var(--sup); border-bottom:var(--linea); }
+    .obra:first-child .foto { border-bottom:0; border-right:var(--linea); }
+    .foto img { width:100%; height:auto; aspect-ratio:16/10; object-fit:contain; transition:transform .5s cubic-bezier(.22,.61,.36,1); }
+    .obra:hover .foto img { transform:scale(1.03); }
+    .info { min-width:0; padding:clamp(20px,3vw,40px); display:flex; flex-direction:column; flex:1; gap:12px; align-items:flex-start; }
     .num { font:500 13px var(--mono); color:var(--cian); text-transform:uppercase; letter-spacing:.08em; }
-    .info h2 { font:700 clamp(32px,4.6vw,64px)/1 var(--titulo); letter-spacing:-.035em; text-transform:uppercase; }
+    .info h2 { overflow-wrap:anywhere; hyphens:auto; font:700 clamp(24px,2.6vw,36px)/1.05 var(--titulo); letter-spacing:-.035em; text-transform:uppercase; }
     .desc { max-width:40ch; color:var(--suave); }
     .etiquetas { display:flex; flex-wrap:wrap; gap:8px; }
     .etiquetas li { font:500 12px var(--mono); border:1px solid var(--suave); color:var(--tinta); padding:3px 10px; }
-    .info .boton { margin-top:10px; }
+    .info .boton { margin-top:auto; }
+    .obra:first-child .info h2 { font-size:clamp(28px,3.6vw,52px); } .obra:first-child .info .boton { margin-top:10px; }
 
     .contacto { background:var(--sup); border-bottom:var(--linea); position:relative; padding:clamp(56px,9vw,120px) 0; }
     .contacto::before { content:""; position:absolute; inset:0 0 auto 0; height:6px; background:var(--marca); }
     .contacto h2 { font:700 clamp(44px,9vw,140px)/.9 var(--titulo); letter-spacing:-.04em; text-transform:uppercase; max-width:12ch; }
     .contacto p { font-size:clamp(19px,2vw,26px); max-width:30ch; margin:24px 0 32px; line-height:1.3; }
-    .contacto .cta { box-shadow:5px 5px 0 var(--verde); }
+    .contacto .cta { box-shadow:5px 5px 0 var(--verde); } .contacto .cta:hover { box-shadow:8px 8px 0 var(--verde); } .contacto .cta:active { box-shadow:2px 2px 0 var(--verde); }
     footer { padding:24px 0 32px; font-size:14px; color:var(--suave); }
 
     .revela { opacity:0; transform:translateY(24px); transition:opacity .5s, transform .5s; }
     .revela.visto { opacity:1; transform:none; }
+    html { -webkit-tap-highlight-color:transparent; overflow-x:clip; } body { overflow-x:clip; } .hero h1 { overflow-wrap:break-word; }
+    header .envoltura { padding-top:env(safe-area-inset-top); }
     @media (max-width:820px) {
+      body { font-size:16px; }
       header nav { display:none; }
+      header .envoltura { min-height:56px; }
+      .escenario { height:clamp(260px,46svh,420px); }
+      .hero { padding:28px 0 32px; }
+      .hero h1 { font-size:clamp(34px,10.5vw,96px); }
+      .hero .fila { margin-top:20px; gap:16px; }
+      .hero .botones { margin-top:22px; flex-direction:column; gap:16px; }
+      .hero .botones .cta { justify-content:center; width:100%; }
+      .info { padding:20px 18px 24px; gap:10px; }
+      .info h2, .obra:first-child .info h2 { font-size:clamp(26px,8vw,38px); }
+      .info .boton { width:100%; justify-content:center; margin-top:8px; }
+      .contacto { padding:56px 0 64px; }
+      .contacto .cta { width:100%; justify-content:center; }
+      .saltar { bottom:10px; right:10px; }
       .hero .fila { grid-template-columns:1fr; } .hero .datos { justify-content:flex-start; }
-      .obra, .obra.inversa { grid-template-columns:1fr; }
-      .obra.inversa .foto { order:0; border-left:0; } .foto { border-right:0; border-bottom:var(--linea); }
+      .obra { border-right:0; } .obra:first-child { flex-direction:column; flex-wrap:nowrap; } .obra:first-child .foto { flex:none; border-right:0; border-bottom:var(--linea); }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior:auto; } * { transition:none !important; }
@@ -127,7 +147,7 @@ const html = `<!doctype html>
   <a class="salto" href="#proyectos">Saltar a los proyectos</a>
   <header>
     <div class="envoltura">
-      <strong>${esc(sitio.marca)}</strong>
+      <a class="brand" href="#" aria-label="${esc(sitio.marca)}">${/^The./.test(sitio.marca) ? `The<span>${esc(sitio.marca.slice(3))}</span>` : `<span>${esc(sitio.marca)}</span>`}</a>
       <nav aria-label="Principal"><ul><li><a href="#proyectos">Proyectos</a></li>${wa ? '<li><a href="#contacto">Contacto</a></li>' : ''}</ul></nav>
       ${wa ? `<a class="cta" href="${wa}" target="_blank" rel="noopener">Hablemos</a>` : ''}
     </div>
@@ -167,7 +187,7 @@ const html = `<!doctype html>
       try { seen = localStorage.getItem('portafolio:intro') === '1' } catch {}
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
       const baja = innerWidth < 768 || (navigator.hardwareConcurrency || 8) <= 4 || matchMedia('(pointer: coarse)').matches
-      const h = { config: { q: baja ? 'baja' : 'media', fps: 30, intro: 0, skipIntro: reduced || seen },
+      const h = { config: { q: baja ? 'baja' : 'media', fps: 30, intro: 0, skipIntro: reduced || seen || baja },
         fail: () => { mark('data-hero', 'poster'); mark('data-intro', 'done') },
         ready: (a) => { api = a; mark('data-hero', 'live') },
         introStarted: () => mark('data-intro', 'playing'),
@@ -180,6 +200,7 @@ const html = `<!doctype html>
   <script defer src="hero/three.min.js"></script>
   <script defer src="hero/gsap.min.js"></script>
   <script defer src="hero/hero.js"></script>
+  <script defer src="hero/botones.js"></script>
   <script>
     const io = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target) } }, { threshold: .2 })
     document.querySelectorAll('.revela').forEach((e) => io.observe(e))
